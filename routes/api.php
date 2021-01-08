@@ -19,5 +19,7 @@ Route::post('register', 'PassportController@register');
 
 Route::middleware('auth:api')->group(function(){
     Route::get('user', 'PassportController@user');
-    Route::resource('products', 'ProductController');
 });
+
+Route::resource('products', 'ProductController');
+Route::get('all-products', 'ProductController@all')->name('all-product');
