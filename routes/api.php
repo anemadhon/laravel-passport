@@ -17,9 +17,10 @@ use Illuminate\Support\Facades\Route;
 Route::post('login', 'PassportController@login');
 Route::post('register', 'PassportController@register');
 
+Route::get('all-products', 'ProductController@all')->name('all-product');
+
 Route::middleware('auth:api')->group(function(){
     Route::get('user', 'PassportController@user');
+    Route::post('logout', 'PassportController@logout');
+    Route::resource('products', 'ProductController');
 });
-
-Route::resource('products', 'ProductController');
-Route::get('all-products', 'ProductController@all')->name('all-product');

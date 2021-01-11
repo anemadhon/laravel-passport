@@ -147,7 +147,7 @@ class ProductController extends Controller
     
     protected function _userId()
     {
-        return 6;
+        return auth('api')->user()->id;
     }
 
     protected function _product($id)
